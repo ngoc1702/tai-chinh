@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import { Icon } from "./ui-icons";
 
+export function CopyCode() {
+  const [status, setStatus] = useState("");
+  return <button type="button" className="copy-button" aria-label="Copy promo code FXBONUS" onClick={async () => {try {await navigator.clipboard.writeText("FXBONUS"); setStatus("Copied!");} catch {setStatus("FXBONUS");}}}>{status || <Icon name="copy"/>}<span className="sr-only" role="status">{status}</span></button>;
+}
+
 
 export function ArticleTools({ articleId = "prop-firm-review" }: {articleId?: string}) {
   const storageKey = `finora-${articleId}-saved`;
