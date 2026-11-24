@@ -43,7 +43,7 @@ export default function PropFirmReview() {
           <div className="eyebrow"><span className="category-dot"/> THE TRADER’S HANDBOOK <span className="edition">2026 EDITION</span></div>
           <h1>What Is a Prop Firm?<br/><span>A Complete Guide to</span><br/>Prop Trading in 2026</h1>
           <p className="standfirst">Bigger opportunities start with a better understanding. Explore how prop firms work, what to look for, and where FundedNext fits in.</p>
-          <div className="article-meta"><div className="author-avatar">F</div><div className="author-info"><strong>Finora Editorial</strong><span>November 24, 2026 <b>·</b> {Math.ceil(blocks.join(" ").split(/\s+/).length / 220)} min read</span></div><ArticleTools /></div>
+          <div className="article-meta"><div className="author-avatar">F</div><div className="author-info"><strong>Finora Editorial</strong><span><time dateTime="2019-11-24">November 24, 2019</time> <b>·</b> {Math.ceil(blocks.join(" ").split(/\s+/).length / 220)} min read</span></div><ArticleTools /></div>
           <figure className="hero-image"><Image src="/prop-firm-review.png" width={600} height={338} alt="Glowing purple trading cube above a blue and violet market chart" preload sizes="(max-width: 800px) 100vw, 740px"/><figcaption><span>THE WORLD OF PROP TRADING</span><span>Knowledge is your first advantage.</span></figcaption></figure>
           <div className="disclosure-line"><Icon name="info" size={18}/> Independent insights. This article contains affiliate links. <a href="#disclosures">Read disclosure</a></div>
           <article className="article-body">
