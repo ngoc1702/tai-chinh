@@ -11,7 +11,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {slug} = await params;
   const post = archivePosts.find(post => post.slug === slug);
   if (!post) notFound();
-  return {title: `${post.title} | Finora`, description: post.description};
+  return {title: `${post.title} | Finora`, description: post.description, openGraph: {type: "article", title: post.title, description: post.description, publishedTime: `${post.date}T00:00:00Z`}};
 }
 
 export default async function ArchivePost({params}: Props) {

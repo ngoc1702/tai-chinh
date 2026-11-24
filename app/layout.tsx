@@ -4,7 +4,7 @@ import { SiteHeader, SiteFooter } from "./site-chrome";
 
 export const metadata: Metadata = {
   title: "Finora | A Clearer Perspective on Finance",
-  description: "Explore money, markets, and trading with Finora. Accessible financial education, thoughtful explainers, and in-depth reviews.",
+  description: "Explore money, markets, and trading with Finora's 2019 reading collection. Clear financial explainers and in-depth educational guides.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

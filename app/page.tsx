@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon, type IconName } from "./ui-icons";
 import { archivePosts, readingMinutes } from "./posts";
+import { propGuide, propGuideMinutes } from "./prop-guide";
 
 const topics = [
   { title: "Money essentials", text: "Make sense of the language behind everyday financial decisions.", icon: "wallet", href: "#money-basics", tag: "BUILD YOUR FOUNDATION" },
@@ -36,7 +37,7 @@ export default function Home() {
 
     <section className="insights-section home-container" id="insights">
       <div className="section-heading"><div><p className="section-kicker">THE FINORA JOURNAL</p><h2>A closer look.</h2></div><span className="journal-note">Our latest in-depth read</span></div>
-      <div className="featured-story"><Link href="/blog/prop-firm-review" className="featured-image"><Image src="/prop-firm-review.png" width={600} height={338} alt="A glowing purple trading cube against a blue market chart" sizes="(max-width: 800px) 100vw, 550px"/></Link><div className="featured-copy"><div className="story-category">TRADING & PLATFORMS <span>•</span> GUIDE & REVIEW</div><Link href="/blog/prop-firm-review"><h3>What Is a Prop Firm?<br/>A Complete Guide to Prop Trading in 2026</h3></Link><p>How do prop firms work? Explore evaluation programs, their benefits and risks, and a closer look at FundedNext.</p><div className="story-meta"><time dateTime="2019-11-24">November 24, 2019</time> <span>·</span> Finora Editorial</div><Link className="text-link" href="/blog/prop-firm-review">Read the full story</Link></div></div>
+      <div className="featured-story"><Link href="/blog/prop-firm-review" className="featured-image"><Image src={propGuide.image} width={1200} height={676} alt={propGuide.imageAlt} sizes="(max-width: 800px) 100vw, 550px"/></Link><div className="featured-copy"><div className="story-category">TRADING & PLATFORMS <span>•</span> THE 2019 COLLECTION</div><Link href="/blog/prop-firm-review"><h3>{propGuide.title}</h3></Link><p>{propGuide.description}</p><div className="story-meta"><time dateTime={propGuide.date}>{propGuide.displayDate}</time><span>·</span>{propGuideMinutes} min read</div><Link className="text-link" href="/blog/prop-firm-review">Read the full story</Link></div></div>
     </section>
 
     <section className="archive-section home-container" id="archive">
@@ -53,6 +54,6 @@ export default function Home() {
       <details><summary><span className="lesson-label">TRADING FUNDAMENTALS</span><span className="lesson-title">What does drawdown mean?</span><span className="lesson-plus"><Icon name="plus"/></span></summary><p>Drawdown describes a decline from an account’s previous peak. Trading programs may calculate daily and overall drawdown differently. The article above explains why those definitions matter when reviewing a prop firm.</p><Link href="/blog/prop-firm-review#how-does-prop-trading-work">Explore the trading guide</Link></details>
     </div></div></section>
 
-    <section className="about-section home-container" id="about"><div><p className="section-kicker">HELLO, WE’RE FINORA</p><h2>Finance, with<br/><em>a little more clarity.</em></h2></div><div className="about-copy"><p>Finora is a space for curious minds to explore the world of finance. We bring together approachable explainers and detailed reviews, with room to look beyond the headline.</p><p>Our focus is understanding: the language, the mechanics, and the questions worth asking. Wherever you are in your learning journey, there’s always another perspective to discover.</p><div className="editorial-values"><span><Icon name="book" size={16}/>Clear explanations</span><span><Icon name="info" size={16}/>Thoughtful context</span><span><Icon name="shield" size={16}/>Transparent disclosures</span></div></div></section>
+    <section className="about-section home-container" id="about"><div><p className="section-kicker">HELLO, WE’RE FINORA</p><h2>Finance, with<br/><em>a little more clarity.</em></h2></div><div className="about-copy"><p>Finora is a space for curious minds to explore the world of finance. We bring together approachable explainers and in-depth guides, with room to look beyond the headline.</p><p>Our focus is understanding: the language, the mechanics, and the questions worth asking. Wherever you are in your learning journey, there’s always another perspective to discover.</p><div className="editorial-values"><span><Icon name="book" size={16}/>Clear explanations</span><span><Icon name="info" size={16}/>Thoughtful context</span><span><Icon name="shield" size={16}/>Transparent disclosures</span></div></div></section>
   </main>;
 }

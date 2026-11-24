@@ -4,11 +4,6 @@ import { useEffect, useState } from "react";
 import { Icon } from "./ui-icons";
 
 
-export function CopyCode() {
-  const [status, setStatus] = useState("");
-  return <button className="copy-button" aria-label="Copy promo code FXBONUS" onClick={async () => {try {await navigator.clipboard.writeText("FXBONUS"); setStatus("Copied!");} catch {setStatus("FXBONUS");}}}>{status || <Icon name="copy"/>}<span className="sr-only" role="status">{status}</span></button>;
-}
-
 export function ArticleTools({ articleId = "prop-firm-review" }: {articleId?: string}) {
   const storageKey = `finora-${articleId}-saved`;
   const [saved, setSaved] = useState(false);
@@ -26,5 +21,5 @@ export function ReadingProgress() {
 export function TableOfContents({items}: {items: {id: string; title: string}[]}) {
   const [active, setActive] = useState(items[0].id);
   useEffect(() => {const observer = new IntersectionObserver(entries => {for(const entry of entries) if(entry.isIntersecting) setActive(entry.target.id);}, {rootMargin: "-125px 0px -45% 0px"}); items.forEach(item => {const node = document.getElementById(item.id); if(node) observer.observe(node);}); return () => observer.disconnect();}, [items]);
-  return <nav className="toc" aria-label="Table of contents"><div className="toc-heading"><Icon name="list" size={18}/> ON THIS PAGE</div><div className="toc-links">{items.map(item => <a key={item.id} href={`#${item.id}`} className={active === item.id ? "active" : ""} aria-current={active === item.id ? "location" : undefined}>{item.title.replace("FundedNext Discount Code: FXBONUS", "FundedNext discount code").replace("Frequently Asked Questions About Prop Firms", "Frequently asked questions").replace("Final Thoughts: Is Prop Trading Worth It in 2026?", "Final thoughts").replace("Is FundedNext Suitable for Beginners?", "Is it suitable for beginners?")}</a>)}</div></nav>;
+  return <nav className="toc" aria-label="Table of contents"><div className="toc-heading"><Icon name="list" size={18}/> ON THIS PAGE</div><div className="toc-links">{items.map(item => <a key={item.id} href={`#${item.id}`} className={active === item.id ? "active" : ""} aria-current={active === item.id ? "location" : undefined}>{item.title}</a>)}</div></nav>;
 }
