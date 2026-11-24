@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Skybet
 
-## Getting Started
+A multipage English finance website built with Next.js and React.
 
-First, run the development server:
+## Run
 
-```bash
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production validation: `npm run build`. Run the production build with `npm start`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/`: finance homepage and guide search.
+- `/topics` and `/topics/[slug]`: eight topic collections.
+- `/blog` and `/blog/[slug]`: searchable article library and reading pages.
+- `/blog/prop-firm-review`: original supplied review, with 2026 replaced by 2019.
+- `/contact` and `/privacy`: contact form, example business details, FAQ, and privacy notice.
+- `/learn`, `/about`, `/disclosures`: learning and editorial information.
 
-## Learn More
+`app/site.css` contains the shared styles. Article summaries and topic data are in
+`app/catalog.ts`; the preserved review is in `app/article.json`.
 
-To learn more about Next.js, take a look at the following resources:
+Reference images and extracted SVGs are stored locally in
+`public/assets/nerdwallet`. Their source URLs are recorded in `sources.json` in
+that directory. `app/reference-media.tsx` centralizes image mappings, and
+`app/ui-icons.tsx` uses those SVG assets for interface icons.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Article bookmarks are stored in the current browser's local storage. Searches
+and topic filters run locally; no account or backend service is required.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The journal contains fourteen articles, including ten additional explainers in
+`app/additional-posts.ts`. All publication dates are in 2019. The original review
+is pinned above the searchable, sortable, paginated article collection.
 
-## Deploy on Vercel
+Contact details are explicitly marked as examples. `POST /api/contact` validates
+and saves inquiries to `.data/contact-messages.ndjson` (ignored by Git). This
+requires a writable Node server filesystem. No email delivery is configured;
+connect a monitored inbox and durable storage before a public deployment.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The learning center and selected topic pages include illustrative savings, fixed
+loan payment, and monthly budget calculators. Their calculation assumptions are
+shown alongside the results; no live rate feed or lender quote is used.

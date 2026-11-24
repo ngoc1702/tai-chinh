@@ -1,0 +1,31 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { articles, topics } from "../../catalog";
+import { ArticleGrid, PageIntro } from "../../content-ui";
+import { Icon } from "../../ui-icons";
+import { topicGuides } from "../../topic-guides";
+import { topicResources } from "../../topic-resources";
+import { MoneyCalculator } from "../../money-calculator";
+
+type Props = {params:Promise<{slug:string}>};
+export function generateStaticParams() {return topics.map(topic => ({slug:topic.slug}));}
+export async function generateMetadata({params}:Props):Promise<Metadata> {const {slug} = await params;const topic = topics.find(topic => topic.slug === slug);if(!topic) notFound();return {title:`${topic.title} | Skybet`,description:topic.description};}
+export default async function TopicPage({params}:Props) {
+  const {slug} = await params; const topic = topics.find(topic => topic.slug === slug);if(!topic) notFound();
+  const related = articles.filter(article => article.category === slug).slice(0,3);
+  const guide = topicGuides[slug];
+  const resources = topicResources[slug];
+  return <main className="home-container interior-page topic-page"><PageIntro eyebrow={topic.title} title={guide.headline} description={guide.lead}/>
+    <nav className="topic-jump-nav" aria-label={`${topic.title} sections`}><a href="#browse-guides">Explore guides</a><a href="#essentials">The essentials</a><a href="#understand-options">Understand the differences</a><a href="#topic-tools">Tools & resources</a><a href="#topic-faq">Common questions</a><a href="#related-reading">Related reading</a></nav>
+    <section className="content-section" id="browse-guides"><div className="section-heading"><div><p className="section-kicker">START WITH YOUR QUESTION</p><h2>What would you like to understand?</h2></div><span className="journal-note">A guide for each starting point</span></div><div className="guide-grid">{guide.options.map((option,index)=><a className="guide-card" key={option.title} href={`#guide-${index}`}><span className="guide-card-icon"><Icon name={topic.icon} size={30}/></span><h3>{option.title}</h3><p>{option.description}</p><span className="topic-action">Read the guide</span></a>)}</div></section>
+    <section className="content-section" id="essentials"><div className="section-heading"><div><p className="section-kicker">BUILD YOUR KNOWLEDGE</p><h2>{topic.title}, explained.</h2></div></div><p className="section-introduction">{topic.introduction}</p>
+    <div className="topic-detail-layout"><section className="concepts-list"><h2>Understand the essentials</h2>{topic.concepts.map((concept,index) => <div className="concept-row" id={`concept-${index}`} key={concept.title}><Icon name={topic.icon} size={24}/><div><h3>{concept.title}</h3><p>{concept.text}</p></div></div>)}</section><aside className="questions-panel"><p className="section-kicker">QUESTIONS TO EXPLORE</p><ul>{topic.questions.map(question => <li key={question}>{question}</li>)}</ul><Link className="text-link" href="/learn">Look up a term</Link></aside></div>
+    </section>
+    <section className="content-section topic-deeper" aria-label="Detailed topic guides"><div className="topic-explanations">{guide.options.map((option,index)=><section className="guide-explanation" id={`guide-${index}`} key={option.title}><p className="section-kicker">A CLOSER LOOK</p><h2>{option.title}</h2><p>{option.detail}</p></section>)}</div><aside className="topic-checklist"><Icon name="verified" size={30}/><h2>Put it all together.</h2><p>Keep the complete picture in view as you read.</p><ul>{guide.checklist.map(item=><li key={item}><Icon name="verified" size={19}/><span>{item}</span></li>)}</ul><Link className="text-link" href="/learn">Visit the learning center</Link></aside></section>
+    <section className="content-section" id="understand-options"><div className="section-heading"><div><p className="section-kicker">SEE THE DIFFERENCES</p><h2>{guide.comparison.label}</h2></div></div><div className="comparison-wrap"><table className="comparison-table"><caption className="sr-only">{guide.comparison.label}</caption><thead><tr><th scope="col">What you are looking at</th><th scope="col">What it describes</th><th scope="col">What to read alongside it</th></tr></thead><tbody>{guide.comparison.rows.map(row=><tr key={row[0]}>{row.map((cell,index)=>index===0?<th scope="row" key={cell}>{cell}</th>:<td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></section>
+    <section className="content-section" id="topic-tools"><div className="section-heading"><div><p className="section-kicker">PUT YOUR KNOWLEDGE TO WORK</p><h2>{resources.title}</h2></div></div><p className="section-introduction">{resources.description}</p>{resources.calculator&&<MoneyCalculator key={resources.calculator} mode={resources.calculator}/>}<div className="topic-resource-links">{resources.links.map(link=><Link key={link.label} href={link.href}><Icon name="book" size={23}/><h3>{link.label}</h3><p>{link.description}</p><span className="topic-action">Explore resource</span></Link>)}</div></section>
+    <section className="content-section topic-faq" id="topic-faq"><div className="section-heading"><div><p className="section-kicker">A FEW MORE ANSWERS</p><h2>Your {topic.title.toLowerCase()} questions.</h2></div></div>{guide.faqs.map(faq=><details key={faq.question}><summary>{faq.question}<span className="faq-toggle"><Icon name="plus" size={18}/></span></summary><p>{faq.answer}</p></details>)}</section>
+    {topic.source && <div className="topic-source"><Icon name="book" size={19}/><p>Further reading: <a href={topic.source.url} target="_blank" rel="noopener noreferrer">{topic.source.label}</a></p></div>}
+    <section className="related-section" id="related-reading"><div className="section-heading"><div><p className="section-kicker">CONTINUE READING</p><h2>{related.length ? "From this collection" : "Build your financial foundation"}</h2></div><Link className="text-link" href="/blog">Browse all articles</Link></div><ArticleGrid items={related.length ? related : articles.filter(article => article.category === "money")}/></section><Link className="text-link" href="/topics">Explore all topics</Link></main>;
+}

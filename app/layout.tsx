@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./finora.css";
+import "./site.css";
 import { SiteHeader, SiteFooter } from "./site-chrome";
 
 export const metadata: Metadata = {
-  title: "Finora | A Clearer Perspective on Finance",
-  description: "Explore money, markets, and trading with Finora's 2019 reading collection. Clear financial explainers and in-depth educational guides.",
+  title: "Skybet | A Clearer Perspective on Finance",
+  description: "Understand credit cards, banking, mortgages, loans, insurance, and investing with Skybet. Clear guides for your next financial decision.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

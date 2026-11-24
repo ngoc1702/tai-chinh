@@ -1,11 +1,7 @@
 import Link from "next/link";
+import { topics } from "./catalog";
 export { SiteHeader } from "./site-header";
 
 export function SiteFooter() {
-  return <footer><div className="footer-inner">
-    <Link className="brand" href="/">Fin<span>ora</span>.</Link>
-    <p>A clearer perspective on money and markets.</p><span>© 2019 Finora</span>
-    <Link className="footer-legal" href="/blog/prop-firm-review#disclosures">Editorial & risk notice</Link>
-    <p className="footer-disclaimer">For educational purposes. Content does not constitute financial advice.</p>
-  </div></footer>;
+  return <footer className="wallet-footer"><div className="home-container"><div className="wallet-footer-grid"><div className="footer-brand-column"><Link className="brand" href="/">Sky<span>bet</span>.</Link><p>More clarity.<br/>For every money move.</p><span>Financial understanding starts here.</span></div><nav aria-label="Financial topic navigation"><h2>Explore your options</h2>{topics.slice(0,5).map(topic=><Link key={topic.slug} href={`/topics/${topic.slug}`}>{topic.title}</Link>)}</nav><nav aria-label="Reading resources"><h2>Keep learning</h2><Link href="/topics/markets">Investing & markets</Link><Link href="/topics/money">Personal finance</Link><Link href="/topics/trading">Trading & platforms</Link><Link href="/blog">The journal</Link><Link href="/learn">Learning center</Link></nav><nav aria-label="About Skybet"><h2>About Skybet</h2><Link href="/about">Our story</Link><Link href="/about">Editorial approach</Link><Link href="/topics">All topics</Link><Link href="/contact">Contact us</Link><Link href="/privacy">Privacy notice</Link><Link href="/disclosures">Disclosures & risk notice</Link></nav></div><div className="wallet-footer-bottom"><span>© 2019 Skybet. All rights reserved.</span><p>For educational purposes. Content does not constitute financial advice. Provider offers and eligibility are subject to their terms.</p></div></div></footer>;
 }

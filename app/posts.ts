@@ -1,4 +1,4 @@
-import type { IconName } from "./ui-icons";
+import { additionalPosts } from "./additional-posts";
 
 export type Post = {
   slug: string;
@@ -7,17 +7,18 @@ export type Post = {
   category: string;
   date: string;
   displayDate: string;
-  icon: IconName;
-  tone: string;
+  topic: string;
   sections: {title: string; paragraphs: string[]}[];
+  sources?: {title: string; url: string}[];
 };
 
 export const archivePosts: Post[] = [
+  ...additionalPosts,
   {
     slug: "understanding-your-money-2019",
     title: "Understanding Your Money: The Building Blocks of a Budget",
     description: "Income, expenses, and the space between them. A clear introduction to the language of everyday money.",
-    category: "Money essentials", date: "2019-03-14", displayDate: "March 14, 2019", icon: "wallet", tone: "sage",
+    category: "Money essentials", date: "2019-03-14", displayDate: "March 14, 2019", topic: "money",
     sections: [
       {title: "A budget is a picture of movement", paragraphs: ["A bank balance describes money at a single moment. A budget describes how that money moves over time. It brings income and expenses together within a defined period, such as a week or a month.", "The purpose of that picture is understanding. Two people with the same income can have very different financial circumstances because their regular commitments, household needs, and payment schedules differ."]},
       {title: "Income is more than a headline number", paragraphs: ["Gross income is the amount earned before deductions. Net income is the amount remaining after deductions. A monthly plan based on gross income can describe money that is never actually available to spend.", "Timing matters too. A bill can fall due before an income payment arrives, even when total monthly income exceeds total expenses. A calendar and a budget describe different parts of the same picture."]},
@@ -30,7 +31,7 @@ export const archivePosts: Post[] = [
     slug: "how-financial-markets-work-2019",
     title: "How Financial Markets Work: A Beginner’s Field Guide",
     description: "A closer look at buyers, sellers, prices, and the different roles financial markets play.",
-    category: "Markets & investing", date: "2019-07-22", displayDate: "July 22, 2019", icon: "chart", tone: "blue",
+    category: "Markets & investing", date: "2019-07-22", displayDate: "July 22, 2019", topic: "markets",
     sections: [
       {title: "A meeting place for buyers and sellers", paragraphs: ["A financial market connects participants who want to exchange financial assets. Those assets can include company shares, bonds, and currencies. The market provides a way for participants to communicate prices and complete transactions.", "A market is not a single opinion about value. It is the result of many participants acting on different information, expectations, and needs."]},
       {title: "What a quoted price actually tells you", paragraphs: ["A quoted price is tied to an instrument and a moment in time. The last traded price describes a completed transaction. It does not guarantee that another transaction can take place at exactly the same price.", "A bid is a price a buyer is offering. An ask is a price a seller is requesting. The difference between them is called the spread. These details help explain why a price on a screen and the price of an execution can differ."]},
@@ -43,7 +44,7 @@ export const archivePosts: Post[] = [
     slug: "risk-and-reward-2019",
     title: "Risk and Reward: Looking Beyond the Headline Return",
     description: "Why a return figure tells only part of the story, and how the language of risk adds context.",
-    category: "Financial literacy", date: "2019-11-06", displayDate: "November 6, 2019", icon: "shield", tone: "sand",
+    category: "Money essentials", date: "2019-11-06", displayDate: "November 6, 2019", topic: "money",
     sections: [
       {title: "One result, several questions", paragraphs: ["A percentage return is a compact summary. It describes a change relative to a starting value, but it does not explain every part of the experience behind that change.", "To interpret a return, the period, calculation method, and treatment of costs all matter. A return measured over one month cannot be compared directly with a total return measured over several years."]},
       {title: "The path can matter as much as the destination", paragraphs: ["Two accounts can begin and end at the same values while taking very different paths between those points. One may change gradually while the other experiences substantial declines and recoveries.", "Drawdown describes a decline from a previous peak. It adds information about the path that a final return figure alone leaves out. Different reporting methods can measure drawdown at different intervals."]},

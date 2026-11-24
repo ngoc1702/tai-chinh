@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore, useCallback } from "react";
 import { Icon } from "./ui-icons";
 
 export function CopyCode() {
@@ -11,9 +11,11 @@ export function CopyCode() {
 
 export function ArticleTools({ articleId = "prop-firm-review" }: {articleId?: string}) {
   const storageKey = `finora-${articleId}-saved`;
-  const [saved, setSaved] = useState(false);
+  const subscribe=useCallback((callback:()=>void)=>{window.addEventListener("storage",callback);window.addEventListener("finora-bookmark",callback);return ()=>{window.removeEventListener("storage",callback);window.removeEventListener("finora-bookmark",callback);};},[]);
+  const getSnapshot=useCallback(()=>{try{return localStorage.getItem(storageKey)==="true";}catch{return false;}},[storageKey]);
+  const saved=useSyncExternalStore(subscribe,getSnapshot,()=>false);
+  const setSaved=(value:boolean)=>{localStorage.setItem(storageKey,String(value));window.dispatchEvent(new Event("finora-bookmark"));};
   const [message, setMessage] = useState("");
-  useEffect(() => {try {setSaved(localStorage.getItem(storageKey) === "true");} catch {}}, [storageKey]);
   return <div className="article-tools"><button title={saved ? "Remove bookmark" : "Save article"} aria-label={saved ? "Remove bookmark" : "Save article"} aria-pressed={saved} className={saved ? "saved" : ""} onClick={() => {try {localStorage.setItem(storageKey, String(!saved)); setSaved(!saved); setMessage(saved ? "Bookmark removed" : "Article saved");} catch {setMessage("Bookmarks are unavailable in this browser.");}}}><Icon name="bookmark"/></button><button aria-label="Share article" title="Share article" onClick={async () => {try {if(navigator.share) await navigator.share({title: document.title, url: window.location.href}); else {await navigator.clipboard.writeText(window.location.href); setMessage("Link copied!");}} catch {setMessage("Copy the page address to share.");}}}><Icon name="share"/></button><span role="status" className="tools-message">{message}</span></div>;
 }
 

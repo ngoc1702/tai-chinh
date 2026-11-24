@@ -1,0 +1,166 @@
+{
+  "reference": "https://www.nerdwallet.com/",
+  "assets": [
+    {
+      "file": "/assets/nerdwallet/icons/card.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/bank.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/home.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/loan.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/chart.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/insurance.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/wallet.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/trading.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/chevron.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/search.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/close.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline SVG"
+    },
+    {
+      "file": "/assets/nerdwallet/images/credit-cards-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/credit-cards.DOilJ5Q7.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/insurance-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/insurance.D1tGd8dG.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/mortgages-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/mortgages.BFIxlirl.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/loans-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/personal-loans.C-zUT11-.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/banking-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/banking.Di5Auzcu.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/investing-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/investing.DA0BZhqA.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/money-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/financial-advisors.DCJNyvSd.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/trading-icon.png",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/small-business.u8iPzoCO.png"
+    },
+    {
+      "file": "/assets/nerdwallet/images/credit-cards.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/credit-cards.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/insurance.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/insurance.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/mortgages.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/mortgages.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/personal-loans.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/personal-loans.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/banking.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/banking.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/investing.webp",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/vertical-links/investing.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/hero-background.webp",
+      "source": "https://www.nerdwallet.com/cdn/front-page-astro/header/mweb/header-background-image-202601161024.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/images/reader.webp",
+      "source": "https://www.nerdwallet.com/cdn/front-page-astro/hpValueProp/desktop/hpvalueprop_desktop_2x.webp"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/Handshake.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/Handshake.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/ShieldCheck.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/ShieldCheck.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/Plus.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/Plus.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/LightBulb.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/LightBulb.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/Files.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/Files.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/SealCheck.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/SealCheck.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/list.svg",
+      "source": "https://www.nerdwallet.com/front-page-astro/assets/ListChecksLight.Cwvr-jqa.svg"
+    },
+    {
+      "file": "/assets/nerdwallet/icons/Link.svg",
+      "source": "https://cdns3.nerdwallet.com/front-page-astro/icons/Link.svg"
+    },
+    {
+      "file": "/icon.svg",
+      "source": "https://www.nerdwallet.com/",
+      "type": "inline credit card SVG"
+    },
+    {
+      "component": "mobile navigation",
+      "source": "https://www.nerdwallet.com/",
+      "type": "three-line menu CSS"
+    }
+  ]
+}
